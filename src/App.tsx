@@ -1,9 +1,14 @@
+import { Navbar } from "./components/Navbar";
+import { Hero } from "./components/Hero";
+import "./styles/app.css";
 
 function App() {
   return (
-    <h1>Hello Bibek Welcome</h1>
+    <div className="app">
+      <Navbar />
+      <Hero />
+    </div>
   );
 }
 
-export default App
-// Hero section
+export default App;
