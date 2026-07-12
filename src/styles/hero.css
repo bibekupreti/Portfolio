@@ -1,0 +1,15 @@
+.hero {
+    padding: 80px 0;
+    background-color: cyan;
+}
+.hero-content {
+    display: flex;
+    flex-direction: row;
+}
+.hero-left {
+    flex: 1;
+    background-color: red;
+}
+.hero-badge {
+    background-color: blue;
+}

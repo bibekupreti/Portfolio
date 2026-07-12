@@ -1,13 +1,13 @@
 import { Navbar } from "./components/Navbar";
-import { Hero } from "./components/Hero";
-import "./styles/app.css";
+import Hero from "./components/Hero";
+import { Container } from "./components/Container";
 
 function App() {
   return (
-    <div className="app">
+    <Container>
       <Navbar />
       <Hero />
-    </div>
+    </Container>
   );
 }
 
