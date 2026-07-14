@@ -1,6 +1,9 @@
 import { Container } from "./Container";
 import profileImage from '../assets/images/profile.png'
 import "../styles/hero.css"
+import TechMarquee from "./TechMarquee";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { HiOutlineArrowDownTray } from "react-icons/hi2";
 
 function Hero() {
     return (
@@ -22,30 +25,31 @@ function Hero() {
                         </h1>
 
                         <p className="hero-description">
-                            I build fast, reliable and beautifully crafted
-                            applications for iPhone, iPad and Apple Watch
-                            using Swift, SwiftUI and modern Apple technologies.
+                           Building modern iOS apps with Swift, SwiftUI and UIKit. Exploring React Native while mastering Apple's ecosystem through real-world projects, clean architecture
                         </p>
 
                         <div className="hero-actions">
-
                             <button className="btn primary-btn">
-                                View Projects
+                                <span>View Projects</span>
+                                <FaArrowRightLong />
                             </button>
 
                             <button className="btn secondary-btn">
-                                Download Resume
+                                <span>Download Resume</span>
+                                 <HiOutlineArrowDownTray />
                             </button>
-
                         </div>
+
+                        <TechMarquee />
 
                     </div>
 
                     <div className="hero-right">
 
                         <div className="hero-image-wrapper">
+                            <div className="hero-glow"></div>
 
-                            <div className="hero-circle"></div>
+                            <div className="hero-dots"></div>
 
                             <img
                                 src={profileImage}
