@@ -4,6 +4,7 @@ import "../styles/hero.css"
 import TechMarquee from "./TechMarquee";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { HiOutlineArrowDownTray } from "react-icons/hi2";
+import HeroStats from "./HeroStats";
 
 function Hero() {
     return (
@@ -61,7 +62,9 @@ function Hero() {
 
                     </div>
 
+                     
                 </div>
+                <HeroStats />
             </Container>
         </section>
     )
