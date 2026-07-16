@@ -1,34 +1,21 @@
 :root {
-
     /* Primary */
-
     --primary-500: #6C63FF;
     --primary-400: #8B83FF;
     --primary-300: #B4AEFF;
     --primary-100: #F2EEFF;
 
     /* Neutrals */
-
     --background: #FAF6EF;
-
     --surface: #FFFFFF;
-
     --surface-secondary: #FCFCFC;
-
     --text-primary: #1F2937;
-
     --text-secondary: #6B7280;
-
     --text-tertiary: #9CA3AF;
-
     --border: #ECECEC;
 
     /* Semantic */
-
     --success: #22C55E;
-
     --warning: #F59E0B;
-
     --info: #3B82F6;
-
 }

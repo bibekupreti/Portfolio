@@ -1,51 +1,31 @@
 :root {
-
     --font-family:
         "Inter",
         sans-serif;
 
     /* Hero */
-
-    --display:
-
-        clamp(3.8rem,
-            7vw,
-            5.8rem);
+    --display: clamp(3.8rem, 7vw, 5.8rem);
 
     /* Sections */
-
     --h1: 3.25rem;
-
     --h2: 2.5rem;
-
     --h3: 2rem;
-
     --h4: 1.5rem;
 
     /* Body */
-
     --body-xl: 1.25rem;
-
     --body-lg: 1.125rem;
-
     --body: 1rem;
-
     --caption: .9rem;
 
     /* Weight */
-
     --fw-regular: 400;
-
     --fw-medium: 500;
-
     --fw-semibold: 600;
-
     --fw-bold: 700;
-
     --fw-black: 800;
 
     /* Letter */
-
     --tracking-tight: -0.06em;
 
 }

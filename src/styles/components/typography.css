@@ -1,205 +1,79 @@
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    min-height: var(--navbar-height);
-    padding: var(--space-5) 0;
-
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    background: transparent;
-}
-
-.navbar-logo {
-    display: flex;
-    align-items: center;
-    gap: .45rem;
-
-    font-size: var(--h3);
+.text-display {
+    font-size: var(--display);
     font-weight: var(--fw-black);
-    color: var(--text-primary);
-
-    cursor: pointer;
-    flex-shrink: 0;
+    letter-spacing: var(--tracking-tight);
+    line-height: 1.05;
+    margin-bottom: var(--space-6);
 }
 
-.logo-dot {
-    width: 10px;
-    height: 10px;
-
-    margin-top: .45rem;
-
-    border-radius: 50%;
-    background: var(--primary-500);
+.text-h1 {
+    font-size: var(--h1);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--tracking-tight);
+    line-height: 1.1;
+    margin-bottom: var(--space-5);
 }
 
-.navbar-nav {
-    flex: 1;
-
-    display: flex;
-    justify-content: center;
+.text-h2 {
+    font-size: var(--h2);
+    font-weight: var(--fw-bold);
+    line-height: 1.15;
+    margin-bottom: var(--space-4);
 }
 
-.navbar-links {
-    display: flex;
-    align-items: center;
-    gap: var(--space-7);
-
-    list-style: none;
+.text-h3 {
+    font-size: var(--h3);
+    font-weight: var(--fw-semibold);
+    line-height: 1.2;
+    margin-bottom: var(--space-4);
 }
 
-.navbar-links li {
-    position: relative;
+.text-h4 {
+    font-size: var(--h4);
+    font-weight: var(--fw-semibold);
+    line-height: 1.25;
+    margin-bottom: var(--space-3);
 }
 
-.navbar-links a {
-    color: var(--text-primary);
-    text-decoration: none;
+.text-body-xl {
+    font-size: var(--body-xl);
+    font-weight: var(--fw-regular);
+    line-height: 1.6;
+    margin-bottom: var(--space-3);
+}
+
+.text-body-lg {
+    font-size: var(--body-lg);
+    font-weight: var(--fw-regular);
+    line-height: 1.6;
+    margin-bottom: var(--space-3);
+}
+
+.text-body {
     font-size: var(--body);
+    font-weight: var(--fw-regular);
+    line-height: 1.6;
+    margin-bottom: var(--space-3);
+}
+
+.text-caption {
+    font-size: var(--caption);
     font-weight: var(--fw-medium);
-
-    transition: .25s;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2);
 }
 
-.navbar-links a:hover {
-    color: var(--primary-500);
-}
-
-.navbar-links li.active a {
-    color: var(--primary-500);
-}
-
-.nav-indicator {
-    position: absolute;
-
-    left: 50%;
-    bottom: -14px;
-
-    transform: translateX(-50%);
-
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-    background: var(--primary-500);
-}
-
-.mobile-menu-btn {
-    display: none;
-
-    width: 46px;
-    height: 46px;
-
-    border: none;
-    outline: none;
-
-    background: transparent;
-
-    cursor: pointer;
-
-    color: var(--text-primary);
-
-    font-size: 1.5rem;
-
-    transition: .25s;
-}
-
-.mobile-menu-btn:hover {
-    color: var(--primary-500);
-}
-
-@media (max-width:1024px) {
-    .navbar-links {
-        gap: var(--space-5);
-    }
-}
-
-@media (max-width:900px) {
-
-    .mobile-menu-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .navbar-nav {
-
-        position: absolute;
-
-        top: calc(100% + 1rem);
-        left: 0;
-        right: 0;
-
-        background: inherit;
-
-        display: flex;
-
-        opacity: 0;
-        visibility: hidden;
-
-        transform: translateY(-20px);
-
-        transition: .3s ease;
-
-        pointer-events: none;
-    }
-
-    .navbar-nav.open {
-
-        opacity: 1;
-        visibility: visible;
-
-        transform: translateY(0);
-
-        pointer-events: auto;
-    }
-
-    .navbar-links {
-
-        width: 100%;
-
-        flex-direction: column;
-
-        gap: 1.5rem;
-
-        padding: 2rem 0;
-
-        text-align: center;
-    }
-
-    .navbar-links a {
-
-        display: block;
-
-        width: 100%;
-
-        padding: .5rem;
-
-        font-size: 1.1rem;
-    }
-
-    .nav-indicator {
-        display: none;
-    }
-}
-
-@media (max-width:600px) {
-
-    .navbar {
-        min-height: 76px;
-    }
-
-    .navbar-logo {
-        font-size: 1.75rem;
-    }
-
-    .logo-dot {
-        width: 8px;
-        height: 8px;
-
-        margin-top: .35rem;
-    }
+/* Remove trailing margin when a text element is the last thing in its container —
+   avoids double-spacing when a section already has its own gap below it */
+.text-display:last-child,
+.text-h1:last-child,
+.text-h2:last-child,
+.text-h3:last-child,
+.text-h4:last-child,
+.text-body-xl:last-child,
+.text-body-lg:last-child,
+.text-body:last-child,
+.text-caption:last-child {
+    margin-bottom: 0;
 }

@@ -1,9 +1,5 @@
-:root{
-
-    --transition-fast:.2s ease;
-
-    --transition:.35s ease;
-
-    --transition-slow:.55s ease;
-
+:root {
+    --transition-fast: .2s ease;
+    --transition: .35s ease;
+    --transition-slow: .55s ease;
 }
