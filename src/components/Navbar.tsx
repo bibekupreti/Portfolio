@@ -32,4 +32,3 @@ export function Navbar() {
         </nav >
     )
 }
-// To-Do :- Make the lets talk button and sync the scroll and the nav links
