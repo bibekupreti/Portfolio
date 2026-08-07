@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+body {
+    font-family: var(--font-sans);
+    font-size: var(--fs-base);
+    line-height: var(--lh-relaxed);
+    color: var(--text-primary);
+    font-feature-settings: "cv11", "ss01";
+    letter-spacing: var(--tracking-normal);
+}
+
+.eyebrow {
+    font-size: var(--fs-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+}
+
+.display {
+    font-family: var(--font-display);
+    font-weight: var(--weight-bold);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tracking-tight);
+}
+
+.mono {
+    font-family: var(--font-mono);
+}

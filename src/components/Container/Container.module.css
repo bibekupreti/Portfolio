@@ -1,0 +1,17 @@
+.container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 0.5rem + 3vw, 3rem);
+}
+
+.md {
+    max-width: var(--container-md);
+}
+
+.lg {
+    max-width: var(--container-lg);
+}
+
+.xl {
+    max-width: var(--container-xl);
+}

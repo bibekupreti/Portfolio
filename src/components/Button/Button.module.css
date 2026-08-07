@@ -1,0 +1,74 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-weight: var(--weight-semibold);
+    font-size: var(--fs-sm);
+    letter-spacing: var(--tracking-snug);
+    border-radius: var(--radius-full);
+    transition:
+        transform var(--dur-fast) var(--ease-out),
+        box-shadow var(--dur-base) var(--ease-out),
+        background-color var(--dur-fast) var(--ease-out),
+        border-color var(--dur-fast) var(--ease-out),
+        color var(--dur-fast) var(--ease-out);
+    white-space: nowrap;
+    will-change: transform;
+}
+
+.btn:active {
+    transform: translateY(1px) scale(0.99);
+}
+
+.icon {
+    display: inline-flex;
+    font-size: 1.05em;
+    transition: transform var(--dur-base) var(--ease-out);
+}
+
+.btn:hover .icon {
+    transform: translateX(2px);
+}
+
+/* Sizes */
+.sm {
+    padding: 0.5rem 1rem;
+}
+
+.md {
+    padding: 0.85rem 1.5rem;
+}
+
+/* Variants */
+.primary {
+    background: linear-gradient(180deg, var(--primary-500), var(--primary-600));
+    color: #fff;
+    box-shadow: var(--shadow-glow);
+}
+
+.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 26px 55px -18px rgba(108, 92, 231, 0.6);
+}
+
+.secondary {
+    background: var(--surface-raised);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm), inset 0 0 0 1px var(--border);
+}
+
+.secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md), inset 0 0 0 1px var(--border-strong);
+}
+
+.ghost {
+    background: transparent;
+    color: var(--text-secondary);
+}
+
+.ghost:hover {
+    color: var(--text-primary);
+    background: var(--surface-sunken);
+}

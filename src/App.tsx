@@ -1,16 +1,15 @@
-import { Navbar } from "./components/Navbar";
-import Hero from "./components/Hero";
-import { Container } from "./components/Container";
-import SocialBar from "./components/SocialBar";
+import { Navbar } from "@/components/Navbar/Navbar"
+// import { Hero } from "@/components/Hero/Hero"
+// import { Footer } from "@/components/Footer/Footer"
 
-function App() {
+export function App() {
   return (
-    <Container>
+    <>
       <Navbar />
-      <Hero />
-      <SocialBar />
-    </Container>
-  );
+      {/* <main id="content"> */}
+        {/* <Hero /> */}
+      {/* </main> */}
+      {/* <Footer /> */}
+    </>
+  )
 }
-
-export default App;
