@@ -23,10 +23,6 @@ export function Hero() {
                         initial="hidden"
                         animate="visible"
                     >
-                        <motion.span variants={fadeUp} className={styles.badge}>
-                            <span className={styles.badgeDot} aria-hidden="true" />
-                            {profile.role}
-                        </motion.span>
 
                         <motion.h1 variants={blurReveal} className={styles.title}>
                             {profile.headline[0]}
@@ -68,7 +64,7 @@ export function Hero() {
                         <div className={styles.dots} aria-hidden="true" />
                         <img
                             src={portrait}
-                            alt={`Portrait of ${profile.name}, ${profile.role}`}
+                            alt={`Portrait of ${profile.name}, ${profile.email}`}
                             className={styles.portrait}
                             width={520}
                             height={640}

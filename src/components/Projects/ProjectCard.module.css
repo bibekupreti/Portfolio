@@ -1,0 +1,528 @@
+/* =========================================================
+   CARD
+========================================================= */
+
+.card {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+
+    overflow: hidden;
+
+    background: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+    border-radius: 24px;
+
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.025),
+        0 10px 30px rgba(0, 0, 0, 0.035);
+
+    transition:
+        transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 450ms cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 300ms ease;
+}
+
+
+/* =========================================================
+   CARD LINK
+========================================================= */
+
+.cardLink {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.card:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        color-mix(in srgb,
+            var(--color-primary) 22%,
+            var(--color-border));
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.075),
+        0 3px 10px rgba(0, 0, 0, 0.035);
+}
+
+
+/* =========================================================
+   MEDIA
+========================================================= */
+
+.media {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 10;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(145deg,
+            color-mix(in srgb,
+                var(--color-primary) 6%,
+                var(--color-bg-subtle)),
+            var(--color-bg-subtle));
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.media img {
+    position: relative;
+
+    z-index: 2;
+
+    display: block;
+
+    width: 84%;
+    height: 84%;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 20px 32px rgba(0, 0, 0, 0.12));
+
+    transition:
+        transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+        filter 500ms ease;
+}
+
+
+.card:hover .media img {
+    transform: scale(1.035);
+
+    filter:
+        drop-shadow(0 25px 40px rgba(0, 0, 0, 0.15));
+}
+
+
+/* =========================================================
+   PRIMARY COLOR GLOW
+========================================================= */
+
+.mediaGlow {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 65%;
+    height: 65%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(circle,
+            color-mix(in srgb,
+                var(--color-primary) 13%,
+                transparent),
+            transparent 70%);
+
+    filter: blur(28px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   IMAGE FADE
+========================================================= */
+
+.mediaFade {
+    position: absolute;
+
+    inset: auto 0 0;
+
+    height: 35%;
+
+    background:
+        linear-gradient(to bottom,
+            transparent,
+            color-mix(in srgb,
+                var(--color-bg-subtle) 55%,
+                transparent));
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+.body {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    padding: 26px 28px 28px;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.heading {
+    min-width: 0;
+}
+
+
+.title {
+    margin: 0;
+
+    font-size: clamp(1.45rem,
+            1.25rem + 0.45vw,
+            1.75rem);
+
+    font-weight: 650;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.028em;
+
+    color: var(--color-fg);
+}
+
+
+.tagline {
+    margin: 7px 0 0;
+
+    font-size: var(--text-sm);
+
+    line-height: 1.5;
+
+    color: var(--color-fg-soft);
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    flex-shrink: 0;
+}
+
+
+.iconButton,
+.arrowButton {
+    display: grid;
+
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--color-border);
+
+    transition:
+        transform 250ms ease,
+        background-color 250ms ease,
+        border-color 250ms ease,
+        color 250ms ease;
+}
+
+
+.iconButton {
+    color: var(--color-fg-soft);
+
+    background: var(--color-bg);
+}
+
+
+.iconButton svg,
+.arrowButton svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+.arrowButton {
+    color: var(--color-primary-fg);
+
+    background:
+        var(--color-primary);
+
+    border-color:
+        var(--color-primary);
+}
+
+
+.card:hover .arrowButton {
+    transform: translate(2px, -2px);
+}
+
+
+.iconButton:hover {
+    color: var(--color-primary);
+
+    background:
+        color-mix(in srgb,
+            var(--color-primary) 7%,
+            var(--color-bg));
+
+    border-color:
+        color-mix(in srgb,
+            var(--color-primary) 20%,
+            var(--color-border));
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.description {
+    max-width: 58ch;
+
+    margin: 0;
+
+    font-size: var(--text-sm);
+
+    line-height: 1.7;
+
+    color: var(--color-fg-soft);
+}
+
+
+/* =========================================================
+   CAPABILITIES
+========================================================= */
+
+.capabilities {
+    margin-top: auto;
+
+    padding-top: 4px;
+}
+
+
+.capabilityLabel {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 11px;
+
+    font-weight: 650;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+
+    color: var(--color-fg-muted);
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.features li {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    font-size: var(--text-sm);
+
+    line-height: 1.45;
+
+    color: var(--color-fg-soft);
+}
+
+
+.featureDot {
+    width: 6px;
+    height: 6px;
+
+    margin-top: 0.45rem;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: var(--color-primary);
+
+    box-shadow:
+        0 0 0 3px color-mix(in srgb,
+            var(--color-primary) 9%,
+            transparent);
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.cardLink:focus-visible {
+    outline: 3px solid color-mix(in srgb,
+            var(--color-primary) 35%,
+            transparent);
+
+    outline-offset: -3px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 899px) {
+
+    .media {
+        aspect-ratio: 16 / 10;
+    }
+
+    .body {
+        padding: 24px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .card {
+        border-radius: 20px;
+    }
+
+    .media {
+        aspect-ratio: 4 / 3;
+    }
+
+    .media img {
+        width: 88%;
+        height: 88%;
+    }
+
+    .body {
+        padding: 22px 20px 24px;
+
+        gap: 18px;
+    }
+
+    .header {
+        gap: 12px;
+    }
+
+    .title {
+        font-size: 1.4rem;
+    }
+
+    .tagline {
+        font-size: 13px;
+    }
+
+    .description {
+        font-size: 13px;
+
+        line-height: 1.65;
+    }
+
+    .iconButton,
+    .arrowButton {
+        width: 36px;
+        height: 36px;
+    }
+
+    .features {
+        gap: 8px;
+    }
+
+    .features li {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .card,
+    .media img,
+    .iconButton,
+    .arrowButton {
+        transition: none;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+
+    .card:hover .media img {
+        transform: none;
+    }
+
+    .card:hover .arrowButton {
+        transform: none;
+    }
+}

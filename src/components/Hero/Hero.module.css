@@ -1,48 +1,110 @@
+/* =========================================================
+   HERO
+========================================================= */
+
 .hero {
     padding-top: calc(var(--nav-h) + clamp(2rem, 1rem + 5vw, 5rem));
+
     padding-bottom: var(--space-9);
+
+    overflow: hidden;
 }
+
+
+/* =========================================================
+   GRID
+========================================================= */
 
 .grid {
     display: grid;
+
     grid-template-columns: 1fr;
-    gap: clamp(2.5rem, 1rem + 6vw, 5rem);
+
+    gap: clamp(2.5rem,
+            1rem + 6vw,
+            5rem);
+
     align-items: center;
 }
 
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
 .content {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
     gap: var(--space-5);
+
+    min-width: 0;
+
+    z-index: 2;
 }
+
+
+/* =========================================================
+   BADGE
+========================================================= */
 
 .badge {
     display: inline-flex;
     align-items: center;
+
     gap: var(--space-2);
+
     padding: 0.5rem 1rem;
+
     font-size: var(--fs-sm);
     font-weight: var(--weight-medium);
+
     color: var(--text-secondary);
+
     background: var(--surface-raised);
+
     border-radius: var(--radius-full);
-    box-shadow: inset 0 0 0 1px var(--border), var(--shadow-xs);
+
+    box-shadow:
+        inset 0 0 0 1px var(--border),
+        var(--shadow-xs);
 }
 
 .badgeDot {
     width: 7px;
     height: 7px;
+
+    flex-shrink: 0;
+
     border-radius: var(--radius-full);
+
     background: var(--primary-500);
-    box-shadow: 0 0 0 4px var(--primary-100);
+
+    box-shadow:
+        0 0 0 4px var(--primary-100);
 }
 
+
+/* =========================================================
+   TITLE
+========================================================= */
+
 .title {
+    margin: 0;
+
     font-family: var(--font-display);
+
     font-weight: var(--weight-bold);
-    font-size: var(--fs-3xl);
+
+    font-size: clamp(3rem,
+            2rem + 4vw,
+            var(--fs-3xl));
+
     line-height: var(--lh-tight);
+
     letter-spacing: var(--tracking-tight);
 }
 
@@ -50,115 +112,405 @@
     color: var(--primary-500);
 }
 
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
 .summary {
-    font-size: var(--fs-md);
-    color: var(--text-secondary);
-    line-height: var(--lh-relaxed);
     max-width: 46ch;
+
+    margin: 0;
+
+    font-size: var(--fs-md);
+
+    color: var(--text-secondary);
+
+    line-height: var(--lh-relaxed);
 }
+
+
+/* =========================================================
+   CTA
+========================================================= */
 
 .ctas {
     display: flex;
     flex-wrap: wrap;
+
     gap: var(--space-3);
+
     margin-top: var(--space-2);
 }
+
+
+/* =========================================================
+   MARQUEE
+========================================================= */
 
 .marqueeWrap {
     display: flex;
     flex-direction: column;
+
     gap: var(--space-3);
+
     width: 100%;
+
     margin-top: var(--space-4);
 }
 
 .marqueeLabel {
     font-size: var(--fs-sm);
+
     color: var(--text-tertiary);
 }
 
-/* Visual */
+
+/* =========================================================
+   VISUAL
+========================================================= */
+
 .visual {
     position: relative;
+
+    width: 100%;
+    min-width: 0;
+
     display: flex;
+
     justify-content: center;
-    align-items: flex-end;
-    min-height: 400px;
+    align-items: center;
+
     order: -1;
+
+    isolation: isolate;
 }
+
+
+/* =========================================================
+   GLOW
+========================================================= */
 
 .glow {
     position: absolute;
-    inset: 8% 12% 0 12%;
-    background: radial-gradient(60% 60% at 50% 40%,
+
+    inset: 8% 12% 0;
+
+    background:
+        radial-gradient(60% 60% at 50% 40%,
             rgba(108, 92, 231, 0.28),
             rgba(108, 92, 231, 0) 70%);
+
     filter: blur(10px);
+
     z-index: -1;
+
+    pointer-events: none;
 }
+
+
+/* =========================================================
+   DOTS
+========================================================= */
 
 .dots {
     position: absolute;
+
     top: 6%;
     right: 2%;
+
     width: 120px;
     height: 120px;
-    background-image: radial-gradient(var(--border-strong) 1.5px, transparent 1.5px);
+
+    background-image:
+        radial-gradient(var(--border-strong) 1.5px,
+            transparent 1.5px);
+
     background-size: 16px 16px;
+
     opacity: 0.7;
+
     z-index: -1;
+
+    pointer-events: none;
 }
 
+
+/* =========================================================
+   PORTRAIT
+========================================================= */
+
 .portrait {
+    position: relative;
+
+    display: block;
+
     width: min(100%, 460px);
+
+    max-width: 100%;
+
     height: auto;
+
     object-fit: contain;
-    filter: drop-shadow(0 30px 50px rgba(28, 27, 34, 0.18));
+
+    z-index: 1;
+
+    filter:
+        drop-shadow(0 30px 50px rgba(28, 27, 34, 0.18));
 }
+
+
+/* =========================================================
+   SOCIAL RAIL
+========================================================= */
 
 .socialRail {
     position: absolute;
-    right: clamp(-0.5rem, -2vw, 0rem);
+
     top: 50%;
+    right: clamp(-0.5rem, -2vw, 0rem);
+
     transform: translateY(-50%);
+
     display: flex;
     flex-direction: column;
+
     gap: var(--space-2);
+
     padding: var(--space-2);
-    background: rgba(255, 254, 251, 0.7);
+
+    z-index: 3;
+
+    background: rgba(255,
+            254,
+            251,
+            0.7);
+
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
     border-radius: var(--radius-full);
-    box-shadow: inset 0 0 0 1px var(--border), var(--shadow-md);
+
+    box-shadow:
+        inset 0 0 0 1px var(--border),
+        var(--shadow-md);
 }
 
 .socialBtn {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
+
     width: 40px;
     height: 40px;
+
     font-size: 1.1rem;
+
     color: var(--text-secondary);
+
     border-radius: var(--radius-full);
-    transition: color var(--dur-fast) var(--ease-out),
+
+    transition:
+        color var(--dur-fast) var(--ease-out),
         background-color var(--dur-fast) var(--ease-out),
         transform var(--dur-fast) var(--ease-out);
 }
 
 .socialBtn:hover {
     color: var(--primary-600);
+
     background: var(--surface-sunken);
+
     transform: scale(1.08);
 }
 
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
 @media (min-width: 960px) {
+
     .grid {
-        grid-template-columns: 1.05fr 0.95fr;
+        /*
+         * Two-column hero.
+         *
+         * Both columns share the same row height.
+         */
+        grid-template-columns:
+            minmax(0, 1.05fr) minmax(380px, 0.95fr);
+
         align-items: center;
     }
 
     .visual {
+        /*
+         * THIS is what keeps the image vertically
+         * centered against the whole content column.
+         */
+        align-self: stretch;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
         order: 0;
-        min-height: 540px;
+    }
+
+    .portrait {
+        /*
+         * Desktop portrait size.
+         */
+        width: min(100%,
+                520px);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 959px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+
+        gap: clamp(2.5rem,
+                5vw,
+                4rem);
+    }
+
+    .visual {
+        order: -1;
+
+        width: min(100%,
+                460px);
+
+        margin-inline: auto;
+    }
+
+    .content {
+        align-items: center;
+
+        text-align: center;
+
+        width: 100%;
+    }
+
+    .badge {
+        align-self: center;
+    }
+
+    .summary {
+        margin-inline: auto;
+    }
+
+    .ctas {
+        justify-content: center;
+    }
+
+    .marqueeWrap {
+        align-items: center;
+    }
+
+    .portrait {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+    .hero {
+        padding-top: calc(var(--nav-h) + 2rem);
+
+        padding-bottom: var(--space-8);
+    }
+
+    .grid {
+        gap: 3rem;
+    }
+
+    .visual {
+        width: min(90vw,
+                380px);
+    }
+
+    .portrait {
+        width: 100%;
+    }
+
+    .dots {
+        width: 90px;
+        height: 90px;
+
+        background-size: 13px 13px;
+    }
+
+    .socialRail {
+        right: 0;
+
+        gap: 0.25rem;
+
+        padding: 0.35rem;
+    }
+
+    .socialBtn {
+        width: 36px;
+        height: 36px;
+
+        font-size: 1rem;
+    }
+
+    .ctas {
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+    .ctas>* {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .visual {
+        width: 86vw;
+    }
+
+    .socialRail {
+        transform:
+            translateY(-50%) scale(0.9);
+
+        transform-origin: right center;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .socialBtn {
+        transition: none;
+    }
+
+    .socialBtn:hover {
+        transform: none;
     }
 }

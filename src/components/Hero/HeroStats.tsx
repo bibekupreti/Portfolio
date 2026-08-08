@@ -1,6 +1,10 @@
 import { motion } from "framer-motion"
 import { stats } from "@/data/profile"
-import { fadeUp, stagger, viewportOnce } from "@/utils/motion"
+import {
+    fadeUp,
+    stagger,
+    viewportOnce,
+} from "@/utils/motion"
 import styles from "./HeroStats.module.css"
 
 export function HeroStats() {
@@ -12,12 +16,36 @@ export function HeroStats() {
             whileInView="visible"
             viewport={viewportOnce}
         >
-            {stats.map((stat) => (
-                <motion.div key={stat.label} className={styles.stat} variants={fadeUp}>
-                    <dt className={styles.value}>{stat.value}</dt>
-                    <dd className={styles.label}>{stat.label}</dd>
-                </motion.div>
-            ))}
+            {stats.map((stat) => {
+                const Icon = stat.icon
+
+                return (
+                    <motion.div
+                        key={stat.label}
+                        className={styles.stat}
+                        variants={fadeUp}
+                    >
+                        <div
+                            className={`${styles.iconWrapper} ${styles[stat.tone]}`}
+                        >
+                            <Icon
+                                className={styles.icon}
+                                aria-hidden="true"
+                            />
+                        </div>
+
+                        <div className={styles.content}>
+                            <dt className={styles.value}>
+                                {stat.value}
+                            </dt>
+
+                            <dd className={styles.label}>
+                                {stat.label}
+                            </dd>
+                        </div>
+                    </motion.div>
+                )
+            })}
         </motion.dl>
     )
 }

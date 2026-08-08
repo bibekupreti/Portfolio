@@ -1,6 +1,12 @@
 import type { IconType } from "react-icons"
 import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi"
 import { FaXTwitter } from "react-icons/fa6"
+import {
+    FiCode,
+    FiStar,
+    FiUsers,
+} from "react-icons/fi"
+import { SiAppstore } from "react-icons/si"
 
 export interface SocialLink {
     label: string
@@ -10,7 +16,6 @@ export interface SocialLink {
 
 export const profile = {
     name: "Bibek",
-    role: "iOS Developer",
     location: "Kathmandu, Nepal",
     email: "hello@bibek.dev",
     headline: ["Building thoughtful", "iOS experiences."],
@@ -31,9 +36,42 @@ export interface Stat {
     label: string
 }
 
+export interface Stat {
+    value: string
+    label: string
+    icon: IconType
+}
+
+export interface Stat {
+    value: string
+    label: string
+    icon: IconType
+    tone: "purple" | "blue" | "green" | "orange"
+}
+
 export const stats: Stat[] = [
-    { value: "3+", label: "Years Experience" },
-    { value: "20+", label: "Apps Shipped" },
-    { value: "50k+", label: "Happy Users" },
-    { value: "100%", label: "Clean Code" },
+    {
+        value: "3+",
+        label: "Years Experience",
+        icon: FiCode,
+        tone: "purple",
+    },
+    {
+        value: "20+",
+        label: "Apps Shipped",
+        icon: SiAppstore,
+        tone: "blue",
+    },
+    {
+        value: "50k+",
+        label: "Happy Users",
+        icon: FiUsers,
+        tone: "green",
+    },
+    {
+        value: "100%",
+        label: "Clean Code",
+        icon: FiStar,
+        tone: "orange",
+    },
 ]

@@ -1,6 +1,9 @@
 import { Navbar } from "@/components/Navbar/Navbar"
 import { Hero } from "@/components/Hero/Hero"
-// import { Footer } from "@/components/Footer/Footer"
+import { Footer } from "@/components/Footer/Footer"
+import { Experience } from "./components/Experience/Experience"
+import { Projects } from "./components/Projects/Projects"
+import { About } from "./components/About/About"
 
 export function App() {
   return (
@@ -9,7 +12,10 @@ export function App() {
       <main id="content">
         <Hero />
       </main>
-      {/* <Footer /> */}
+      <Projects/>
+      <Experience/>
+      <About/>
+      <Footer />
     </>
   )
 }

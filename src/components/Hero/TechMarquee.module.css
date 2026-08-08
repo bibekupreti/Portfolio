@@ -1,38 +1,112 @@
+/* =========================================================
+   TECH MARQUEE
+========================================================= */
+
 .marquee {
     position: relative;
     width: 100%;
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(90deg,
-            transparent,
+
+    -webkit-mask-image:
+        linear-gradient(90deg,
+            transparent 0%,
             #000 8%,
             #000 92%,
-            transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            transparent 100%);
+
+    mask-image:
+        linear-gradient(90deg,
+            transparent 0%,
+            #000 8%,
+            #000 92%,
+            transparent 100%);
 }
+
+
+/* =========================================================
+   TRACK
+========================================================= */
 
 .track {
     display: flex;
-    gap: var(--space-3);
+    align-items: center;
+
     width: max-content;
-    animation: scroll 28s linear infinite;
+
+    gap: 0.75rem;
+
+    animation:
+        scroll 30s linear infinite;
+
+    will-change: transform;
 }
 
-.marquee:hover .track {
-    animation-play-state: paused;
-}
+
+/* =========================================================
+   CHIP
+========================================================= */
 
 .chip {
-    flex: none;
-    padding: 0.55rem 1.1rem;
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.5rem;
+
+    padding: 0.55rem 0.85rem;
+
+    white-space: nowrap;
+
+    /*
+     * Quiet Apple-like surface.
+     */
+    background: var(--surface-raised);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-full);
+
+    color: var(--text-secondary);
+
     font-size: var(--fs-sm);
     font-weight: var(--weight-medium);
-    color: var(--text-secondary);
-    background: var(--surface-raised);
-    border-radius: var(--radius-full);
-    box-shadow: inset 0 0 0 1px var(--border);
+
+    letter-spacing: -0.01em;
+
+    /*
+     * Very subtle depth.
+     */
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.035);
 }
 
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.icon {
+    width: 1rem;
+    height: 1rem;
+
+    flex-shrink: 0;
+
+    /*
+     * IMPORTANT:
+     * Do NOT override the icon color.
+     *
+     * React-icons will use their own brand color.
+     */
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
 @keyframes scroll {
+
     from {
         transform: translateX(0);
     }
@@ -42,9 +116,89 @@
     }
 }
 
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .track {
+        gap: 0.6rem;
+
+        animation-duration: 27s;
+    }
+
+    .chip {
+        padding: 0.5rem 0.75rem;
+
+        font-size: 0.8rem;
+    }
+
+    .icon {
+        width: 0.9rem;
+        height: 0.9rem;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .marquee {
+        -webkit-mask-image:
+            linear-gradient(90deg,
+                transparent,
+                #000 14%,
+                #000 86%,
+                transparent);
+
+        mask-image:
+            linear-gradient(90deg,
+                transparent,
+                #000 14%,
+                #000 86%,
+                transparent);
+    }
+
+    .track {
+        gap: 0.5rem;
+
+        animation-duration: 24s;
+    }
+
+    .chip {
+        padding: 0.45rem 0.7rem;
+
+        font-size: 0.78rem;
+    }
+
+    .icon {
+        width: 0.85rem;
+        height: 0.85rem;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
+
     .track {
         animation: none;
+
         flex-wrap: wrap;
+
+        width: 100%;
+    }
+
+    .marquee {
+        -webkit-mask-image: none;
+        mask-image: none;
     }
 }

@@ -1,0 +1,255 @@
+/* =========================================================
+   PROJECTS SECTION
+========================================================= */
+
+.section {
+    position: relative;
+
+    padding:
+        clamp(4.5rem, 7vw, 7rem) 0 clamp(5rem, 8vw, 8rem);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SUBTLE BACKGROUND ATMOSPHERE
+========================================================= */
+
+.section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: min(900px, 90vw);
+    height: 500px;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(circle at 50% 0%,
+            color-mix(in srgb,
+                var(--color-primary) 6%,
+                transparent),
+            transparent 68%);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.heading {
+    max-width: 680px;
+
+    margin:
+        0 auto clamp(2.75rem, 5vw, 4.5rem);
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.sectionLabel {
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    font-size: 12px;
+
+    font-weight: 650;
+
+    letter-spacing: 0.1em;
+
+    text-transform: uppercase;
+
+    color: var(--color-primary);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.title {
+    margin: 0;
+
+    font-size:
+        clamp(2rem,
+            1.5rem + 2vw,
+            3rem);
+
+    font-weight: 650;
+
+    line-height: 1.1;
+
+    letter-spacing: -0.04em;
+
+    color: var(--color-fg);
+}
+
+
+.title span {
+    color: var(--color-primary);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.description {
+    max-width: 58ch;
+
+    margin:
+        18px auto 0;
+
+    font-size: var(--text-md);
+
+    line-height: 1.7;
+
+    color: var(--color-fg-soft);
+}
+
+
+/* =========================================================
+   PROJECT GRID
+========================================================= */
+
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,
+            minmax(0, 1fr));
+
+    gap:
+        clamp(1rem,
+            2vw,
+            1.5rem);
+
+    align-items: stretch;
+}
+
+
+/*
+ * Make Reveal wrappers behave correctly
+ * inside the grid.
+ */
+
+.grid>* {
+    min-width: 0;
+    height: 100%;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 899px) {
+
+    .section {
+        padding:
+            4.5rem 0 5rem;
+    }
+
+    .heading {
+        margin-bottom: 3rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+
+        gap: 1.25rem;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .section {
+        padding:
+            4rem 0 4.5rem;
+    }
+
+    .heading {
+        padding: 0 0.75rem;
+
+        margin-bottom: 2.5rem;
+    }
+
+    .sectionLabel {
+        margin-bottom: 12px;
+
+        font-size: 11px;
+    }
+
+    .title {
+        font-size: 2rem;
+
+        letter-spacing: -0.035em;
+    }
+
+    .description {
+        margin-top: 15px;
+
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+    .grid {
+        gap: 1rem;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .section {
+        padding-top: 3.5rem;
+    }
+
+    .heading {
+        margin-bottom: 2.25rem;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .section::before {
+        display: none;
+    }
+}
