@@ -1,47 +1,40 @@
 export interface ExperienceItem {
-    company: string
     role: string
+    company: string
+    companyUrl: string
     period: string
-    location: string
-    achievements: string[]
-    tech: string[]
+    type?: string
+    description: string
+    highlights: string[]
 }
 
-export const experiences: ExperienceItem[] = [
+export const experience: ExperienceItem[] = [
     {
-        company: "Lumen Labs",
         role: "iOS Developer",
+        company: "Company Name",
+        companyUrl: "#",
         period: "2024 — Present",
-        location: "Remote",
-        achievements: [
-            "Led the SwiftUI rewrite of the flagship app, cutting crash rate by 62%.",
-            "Shipped an offline-first sync layer with SwiftData and background tasks.",
-            "Established a modular architecture adopted across three product teams.",
+        type: "Full-time",
+        description:
+            "Building and maintaining production iOS applications with a focus on reliable architecture, polished interfaces, and maintainable code.",
+        highlights: [
+            "Built reusable SwiftUI components and scalable application architecture.",
+            "Improved application reliability through testing and modern concurrency.",
+            "Collaborated with product and design to ship user-focused features.",
         ],
-        tech: ["SwiftUI", "SwiftData", "Combine", "Swift Concurrency"],
     },
     {
-        company: "Northwind Studio",
-        role: "Junior iOS Engineer",
-        period: "2023 — 2024",
-        location: "Kathmandu",
-        achievements: [
-            "Built reusable UIKit component library used in 6 client apps.",
-            "Integrated StoreKit 2 subscriptions, lifting conversion by 24%.",
-            "Owned the release pipeline through TestFlight and App Store Connect.",
+        role: "iOS Developer",
+        company: "Previous Company",
+        companyUrl: "#",
+        period: "2022 — 2024",
+        type: "Full-time",
+        description:
+            "Worked across the product lifecycle, from implementing new features to improving existing application performance and user experience.",
+        highlights: [
+            "Developed and shipped customer-facing iOS features.",
+            "Refactored legacy code toward more maintainable patterns.",
+            "Worked closely with cross-functional teams to deliver releases.",
         ],
-        tech: ["UIKit", "StoreKit 2", "Core Data", "REST"],
-    },
-    {
-        company: "Freelance",
-        role: "Mobile Developer",
-        period: "2022 — 2023",
-        location: "Remote",
-        achievements: [
-            "Delivered 8+ App Store apps for startups and small businesses.",
-            "Designed accessible interfaces meeting WCAG AA contrast targets.",
-            "Collaborated directly with founders from concept to launch.",
-        ],
-        tech: ["Swift", "SwiftUI", "Firebase", "Figma"],
     },
 ]

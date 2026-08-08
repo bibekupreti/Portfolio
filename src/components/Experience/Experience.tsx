@@ -1,51 +1,102 @@
-import { Container } from "../Container/Container"
-import { SectionHeading } from "../Shared/SectionHeading"
-import { Reveal } from "../Shared/Reveal"
-import { experiences } from "../../data/experience"
+import { FiArrowUpRight } from "react-icons/fi"
+import { motion } from "framer-motion"
+
+import { Container } from "@/components/Container/Container"
+import { SectionHeading } from "@/components/Shared/SectionHeading"
+import { Reveal } from "@/components/Shared/Reveal"
+
+import { experience } from "@/data/experience"
+
 import styles from "./Experience.module.css"
 
 export function Experience() {
     return (
         <section id="experience" className={styles.section}>
             <Container>
-                <SectionHeading
-                    eyebrow="Experience"
-                    title="A path shaped by shipping"
-                    description="Roles and milestones from my journey building for Apple platforms."
-                />
+                <Reveal>
+                    <SectionHeading
+                        eyebrow="Experience"
+                        title="Building products that people use."
+                        description="A few places where I’ve worked, learned, and shipped software."
+                    />
+                </Reveal>
 
-                <ol className={styles.timeline}>
-                    {experiences.map((item, index) => (
-                        <Reveal
-                            as="li"
-                            key={item.company + item.role}
-                            className={styles.item}
-                            delay={index * 0.08}
-                        >
-                            <div className={styles.marker} aria-hidden="true">
-                                <span className={styles.dot} />
-                            </div>
+                <Reveal>
+                    <div className={styles.list}>
+                        {experience.map((item, index) => (
+                            <motion.article
+                                key={`${item.company}-${item.role}`}
+                                className={styles.item}
+                                initial={{ opacity: 0, y: 16 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: index * 0.08,
+                                    ease: [0.22, 1, 0.36, 1],
+                                }}
+                            >
+                                <div className={styles.period}>
+                                    <p className={styles.date}>
+                                        {item.period}
+                                    </p>
 
-                            <div className={styles.card}>
-                                <div className={styles.cardHead}>
-                                    <div>
-                                        <h3 className={styles.role}>{item.role}</h3>
-                                        <p className={styles.company}>{item.company}</p>
-                                    </div>
-                                    <span className={styles.period}>{item.period}</span>
+                                    {item.type && (
+                                        <span className={styles.type}>
+                                            {item.type}
+                                        </span>
+                                    )}
                                 </div>
 
-                                <p className={styles.summary}>{item.achievements}</p>
+                                <div className={styles.content}>
+                                    <h3 className={styles.role}>
+                                        {item.role}
+                                    </h3>
 
-                                <ul className={styles.highlights}>
-                                    {item.tech.map((highlight) => (
-                                        <li key={highlight}>{highlight}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </Reveal>
-                    ))}
-                </ol>
+                                    <a
+                                        href={item.companyUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.company}
+                                    >
+                                        {item.company}
+                                    </a>
+
+                                    <p className={styles.description}>
+                                        {item.description}
+                                    </p>
+
+                                    {item.highlights?.length > 0 && (
+                                        <ul className={styles.highlights}>
+                                            {item.highlights.map(
+                                                (highlight) => (
+                                                    <li
+                                                        key={highlight}
+                                                        className={
+                                                            styles.highlight
+                                                        }
+                                                    >
+                                                        {highlight}
+                                                    </li>
+                                                )
+                                            )}
+                                        </ul>
+                                    )}
+                                </div>
+
+                                <a
+                                    href={item.companyUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.visit}
+                                >
+                                    Visit company
+                                    <FiArrowUpRight aria-hidden="true" />
+                                </a>
+                            </motion.article>
+                        ))}
+                    </div>
+                </Reveal>
             </Container>
         </section>
     )

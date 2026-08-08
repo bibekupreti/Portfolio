@@ -5,8 +5,8 @@
 .section {
     position: relative;
 
-    padding:
-        clamp(4.5rem, 7vw, 7rem) 0 clamp(5rem, 8vw, 8rem);
+    /* padding: */
+        /* clamp(4.5rem, 7vw, 7rem) 0 clamp(5rem, 8vw, 8rem); */
 
     overflow: hidden;
 }
